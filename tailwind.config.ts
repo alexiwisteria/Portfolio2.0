@@ -6,7 +6,13 @@ const config: Config = withMT({
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["Noto Sans Mono", "sans-serif"], // Default 'sans' font
+      },
+    },
+  },
   plugins: [],
 });
 
