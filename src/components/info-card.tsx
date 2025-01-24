@@ -2,9 +2,10 @@ import {
   Card,
   CardHeader,
   CardBody,
-  Typography,
   IconButton,
 } from "@material-tailwind/react";
+import Typography from '@mui/material/Typography';
+import React from "react";
 
 interface InfoCardProps {
   icon: React.ElementType;

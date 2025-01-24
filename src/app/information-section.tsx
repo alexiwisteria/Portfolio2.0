@@ -1,5 +1,5 @@
 "use client";
-import { Typography } from "@material-tailwind/react";
+import Typography from '@mui/material/Typography';
 import {
   AcademicCapIcon,
   BriefcaseIcon,
@@ -53,7 +53,7 @@ const SKILLS = {
   proficient: [
     {
       icon: FireIcon,
-      title: "Proficient Technologies",
+      title: "Proficient",
       date: "Technical Skills",
       children: "Java, Object-Oriented Programming, Agile methodologies.",
     },
@@ -61,7 +61,7 @@ const SKILLS = {
   emerging: [
     {
       icon: FireIcon,
-      title: "Emerging Technologies",
+      title: "Emerging",
       date: "Technical Skills",
       children:
           "Git, JUnit, SQL, ServiceNow, Vite, TypeScript, JavaScript, Python, React, Next.js, MongoDB.",
@@ -93,10 +93,10 @@ export function InformationSection() {
           {/* Education Section */}
           <div className="mb-36">
             <div className="mb-10">
-              <Typography color="gray" className="mb-2 text-3xl font-bold">
+              <Typography variant="h4" color="gray" className="mb-2 text-3xl font-bold">
                 Education
               </Typography>
-              <Typography variant="lead" className="!text-gray-500">
+              <Typography className="!text-gray-500">
                 See my education history.
               </Typography>
             </div>
@@ -110,10 +110,10 @@ export function InformationSection() {
           {/* Extracurricular Activities Section */}
           <div className="mb-36">
             <div className="mb-10">
-              <Typography color="gray" className="mb-2 text-3xl font-bold">
+              <Typography variant="h4" color="gray" className="mb-2 text-3xl font-bold">
                 Extracurricular Activities
               </Typography>
-              <Typography variant="lead" className="!text-gray-500">
+              <Typography className="!text-gray-500">
                 A glimpse into my collaborative and leadership roles outside of work.
               </Typography>
             </div>
@@ -127,10 +127,10 @@ export function InformationSection() {
           {/* Experience Section */}
           <div className="mb-36">
             <div className="mb-10">
-              <Typography color="gray" className="mb-2 text-3xl font-bold">
+              <Typography variant="h4" color="gray" className="mb-2 text-3xl font-bold">
                 Experience
               </Typography>
-              <Typography variant="lead" className="!text-gray-500">
+              <Typography className="!text-gray-500">
                 See my professional experience.
               </Typography>
             </div>
@@ -144,23 +144,17 @@ export function InformationSection() {
           {/* Skills Section */}
           <div>
             <div className="mb-10">
-              <Typography color="gray" className="mb-2 text-3xl font-bold">
+              <Typography variant="h4" color="gray" className="mb-2 text-3xl font-bold">
                 Skills
               </Typography>
-              <Typography variant="lead" className="!text-gray-500">
+              <Typography  className="!text-gray-500">
                 Here’s a look at my technical skills.
               </Typography>
             </div>
 
             {/* Proficient Skills */}
             <div className="mb-12">
-              <Typography
-                  color="gray"
-                  className="mb-2 text-2xl font-semibold"
-              >
-                Proficient Skills
-              </Typography>
-              <div className="container mx-auto grid grid-cols-1 gap-16 gap-y-12 lg:grid-cols-2">
+              <div className="container mx-auto grid grid-cols-1 gap-16 gap-y-1">
                 {SKILLS.proficient.map((props, idx) => (
                     <InfoCard key={idx} {...props} />
                 ))}
@@ -169,13 +163,7 @@ export function InformationSection() {
 
             {/* Emerging Skills */}
             <div>
-              <Typography
-                  color="gray"
-                  className="mb-2 text-2xl font-semibold"
-              >
-                Emerging Skills
-              </Typography>
-              <div className="container mx-auto grid grid-cols-1 gap-16 gap-y-12 lg:grid-cols-2">
+              <div className="container mx-auto grid grid-cols-1 gap-16 gap-y-1">
                 {SKILLS.emerging.map((props, idx) => (
                     <InfoCard key={idx} {...props} />
                 ))}
