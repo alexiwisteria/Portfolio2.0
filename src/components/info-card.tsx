@@ -22,10 +22,10 @@ export function InfoCard({ icon: Icon, title, date, children }: InfoCardProps) {
         shadow={false}
       >
         <div className="flex flex-col gap-1 w-full">
-          <Typography color="blue" className="font-bold text-xs">
+          <Typography color="text-gray-300" className="font-bold text-xs">
             {date}
           </Typography>
-          <Typography color="blue-gray" variant="h5" className="w-full">
+          <Typography color="text-gray-300" variant="h5" className="w-full">
             {title}
           </Typography>
         </div>
