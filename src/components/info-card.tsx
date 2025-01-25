@@ -1,49 +1,29 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  IconButton,
-} from "@material-tailwind/react";
-import Typography from '@mui/material/Typography';
 import React from "react";
 
 interface InfoCardProps {
-  icon: React.ElementType;
-  title: string;
-  date: string;
-  children: React.ReactNode;
+    icon: React.ElementType;
+    title: string;
+    date: string;
+    children: React.ReactNode;
 }
 
 export function InfoCard({ icon: Icon, title, date, children }: InfoCardProps) {
-  return (
-    <Card>
-      <CardHeader
-        className="flex items-center justify-between rounded-none overflow-visible"
-        floated={false}
-        shadow={false}
-      >
-        <div className="flex flex-col gap-1 w-full">
-          <Typography color="text-gray-300" className="font-bold text-xs">
-            {date}
-          </Typography>
-          <Typography color="text-gray-300" variant="h5" className="w-full">
-            {title}
-          </Typography>
+    return (
+        <div className="rounded-lg shadow-lg border border-gray-200 p-4">
+            <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-1">
+                    <p className="text-xs font-bold text-gray-400 font-mono">{date}</p>
+                    <h5 className="text-lg font-semibold text-gray-700 font-mono">
+                        {title}
+                    </h5>
+                </div>
+                <div className="flex-shrink-0">
+                    <Icon className="h-5 w-5 text-gray-500" />
+                </div>
+            </div>
+            <div className="mt-4 text-sm text-gray-500 font-mono">{children}</div>
         </div>
-        <IconButton
-          className="flex-shrink-0 pointer-events-none"
-          ripple={false}
-        >
-          <Icon className="h-5 w-5" strokeWidth={2} />
-        </IconButton>
-      </CardHeader>
-      <CardBody className="grid justify-start !px-3.5 pt-2">
-        <Typography className=" font-normal !text-gray-500">
-          {children}
-        </Typography>
-      </CardBody>
-    </Card>
-  );
+    );
 }
 
 export default InfoCard;
