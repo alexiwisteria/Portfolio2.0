@@ -8,10 +8,6 @@ import CodeLangMetrics from "@/components/CodeLangMetrics";
 export default function Page() {
     return (
         <div className="flex">
-            {/* Hide on small screens, show on medium and larger screens */}
-            <div className="hidden md:flex">
-                <TableOfContents />
-            </div>
             <div className="flex-grow">
                 <section id="hero">
                     <Hero />
