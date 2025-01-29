@@ -1,7 +1,6 @@
 import "./globals.css";
 import { Space_Mono } from "next/font/google"; // Import Space Mono
 import { Layout } from "@/components";
-import TableOfContents from "@/components/TableOfContents";
 import React from "react";
 
 const spaceMono = Space_Mono({
