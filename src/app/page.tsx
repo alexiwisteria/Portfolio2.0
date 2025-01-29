@@ -1,4 +1,3 @@
-import TableOfContents from "@/components/TableOfContents";
 import Hero from "./hero";
 import InformationSection from "./information-section";
 import WeeklyCodingChart from "@/components/WeeklyCodingInfo";
