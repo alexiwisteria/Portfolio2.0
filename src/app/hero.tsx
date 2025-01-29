@@ -8,7 +8,7 @@ function Hero() {
   const greeting = new Date().getHours() < 12 ? "Good Morning!" : "Hello!";
 
   return (
-      <div className="relative w-full bg-gray-50">
+      <div className="relative w-full bg-gray-50 ml-12">
         <div className="grid grid-cols-1 md:grid-cols-2 min-h-[80vh] px-6 sm:px-8 md:px-12 py-6 md:py-8 gap-6 items-center">
           <div className="container mx-auto flex flex-col space-y-4 text-left">
             <motion.h1

@@ -1,10 +1,11 @@
 import "./globals.css";
 import { Space_Mono } from "next/font/google"; // Import Space Mono
 import { Layout } from "@/components";
+import TableOfContents from "@/components/TableOfContents";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
-    weight: [ "400", "700"],
+    weight: ["400", "700"],
     style: ["normal"],
     display: "swap",
 });
@@ -17,10 +18,9 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${spaceMono.className}`}>
         <head>
-
             <link rel="shortcut icon" href="/favicon.png" type="image/png" />
         </head>
-        <body>
+        <body style={{ backgroundColor: "#FAFAFA" }}>
         <Layout>
             {children}
         </Layout>
