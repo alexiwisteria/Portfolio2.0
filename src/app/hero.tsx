@@ -51,7 +51,7 @@ function Hero() {
 
             <button
                 className="mt-4 sm:mt-5 py-2 sm:py-3 px-5 sm:px-6 bg-[#8D99AA] text-white rounded-lg shadow-md hover:bg-[#717B8C] transition-all focus:ring-2 focus:ring-[#8D99AA]"
-                onClick={() => window.open("/portfolio")}
+                onClick={() => window.open("https://github.com/alexiwisteria?tab=repositories")}
             >
               View My Projects
             </button>

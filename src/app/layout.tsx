@@ -1,6 +1,6 @@
 import "./globals.css";
-import { Space_Mono } from "next/font/google"; // Import Space Mono
-import { Layout } from "@/components";
+import {Space_Mono} from "next/font/google"; // Import Space Mono
+import {Layout} from "@/components";
 import TableOfContents from "@/components/TableOfContents";
 
 const spaceMono = Space_Mono({
@@ -10,6 +10,7 @@ const spaceMono = Space_Mono({
     display: "swap",
 });
 
+
 export default function RootLayout({
                                        children,
                                    }: {
@@ -18,11 +19,12 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${spaceMono.className}`}>
         <head>
-            <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <link rel="shortcut icon" href="/favicon.png" type="image/png"/>
         </head>
-        <body style={{ backgroundColor: "#FAFAFA" }}>
+        <body style={{backgroundColor: "#FAFAFA"}}>
         <Layout>
-            {children}
+        {children}
         </Layout>
         </body>
         </html>

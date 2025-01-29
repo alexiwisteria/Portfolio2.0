@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import React from "react";
-import { HomeIcon, BookOpenIcon, FolderIcon, ShoppingCartIcon, CogIcon, BellIcon } from "@heroicons/react/24/outline";
+import { HomeIcon, ArrowDownIcon, PresentationChartLineIcon, IdentificationIcon} from "@heroicons/react/24/outline";
 
 const navItems: { href: string; icon: React.ElementType; label: string }[] = [
     { href: "#hero", icon: HomeIcon, label: "Hero" },
-    { href: "#weekly-coding-chart", icon: BookOpenIcon, label: "Metrics" },
-    { href: "#information-section", icon: FolderIcon, label: "Info" },
-    { href: "#footer", icon: ShoppingCartIcon, label: "Footer" },
+    { href: "#weekly-coding-chart", icon: PresentationChartLineIcon, label: "Metrics" },
+    { href: "#information-section", icon: IdentificationIcon, label: "Info" },
+    { href: "#footer", icon: ArrowDownIcon, label: "Footer" },
 ];
 
 const handleScroll = (id: string) => {
