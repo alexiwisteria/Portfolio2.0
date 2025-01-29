@@ -7,13 +7,13 @@ import { FaJs, FaPython, FaHtml5, FaCss3Alt, FaReact, FaJava, FaICursor } from "
 const predefinedColors = ["#D27D7D", "#E8A76C", "#E0D070", "#8EBF8E", "#6FA3BF", "#7885BF", "#9B7FBF", "#BF6F92"];
 
 const languageIcons: Record<string, (color: string) => JSX.Element> = {
-    JavaScript: (color) => <FaJs color={color} />,
-    Python: (color) => <FaPython color={color} />,
-    HTML: (color) => <FaHtml5 color={color} />,
-    CSS: (color) => <FaCss3Alt color={color} />,
-    React: (color) => <FaReact color={color} />,
-    Java: (color) => <FaJava color={color} />,
-    TypeScript: (color) => <FaICursor color={color} />,
+    JavaScript: (color) => <FaJs className="text-lg md:text-xl" style={{ color }} />,
+    Python: (color) => <FaPython className="text-lg md:text-xl" style={{ color }} />,
+    HTML: (color) => <FaHtml5 className="text-lg md:text-xl" style={{ color }} />,
+    CSS: (color) => <FaCss3Alt className="text-lg md:text-xl" style={{ color }} />,
+    React: (color) => <FaReact className="text-lg md:text-xl" style={{ color }} />,
+    Java: (color) => <FaJava className="text-lg md:text-xl" style={{ color }} />,
+    TypeScript: (color) => <FaICursor className="text-lg md:text-xl" style={{ color }} />,
 };
 
 type WakaTimeData = {
@@ -35,9 +35,9 @@ const CustomTooltip: React.FC<{ active?: boolean; payload?: any[] }> = ({ active
     if (active && payload && payload.length) {
         const data = payload[0].payload;
         return (
-            <div className="bg-white p-2 border border-gray-300 rounded shadow-md">
-                <p className="font-bold m-0">{data.name}</p>
-                <p className="m-0">{data.text}</p>
+            <div className="bg-white p-2 border border-gray-300 rounded shadow-md text-sm">
+                <p className="font-semibold">{data.name}</p>
+                <p>{data.text}</p>
             </div>
         );
     }
@@ -46,11 +46,13 @@ const CustomTooltip: React.FC<{ active?: boolean; payload?: any[] }> = ({ active
 
 const CustomLegend: React.FC<{ payload?: { value: string; color: string }[] }> = ({ payload }) => {
     return (
-        <div className="flex flex-wrap justify-center gap-2 md:gap-4 max-w-xs md:max-w-sm">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4">
             {payload?.map((entry, index) => (
-                <div key={index} className="flex items-center">
-                    {languageIcons[entry.value]?.(entry.color) || ""}
-                    <span className="ml-1 font-bold" style={{ color: entry.color }}>{entry.value}</span>
+                <div key={index} className="flex items-center gap-1">
+                    {languageIcons[entry.value]?.(entry.color)}
+                    <span className="text-sm md:text-base font-semibold" style={{ color: entry.color }}>
+                        {entry.value}
+                    </span>
                 </div>
             ))}
         </div>
@@ -84,15 +86,15 @@ const CodeLangMetrics: React.FC = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center text-center mt-3 mb-2 p-4 md:p-6 lg:p-8 w-full max-w-4xl mx-auto">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Code Clock</h2>
-            <p className="text-sm md:text-lg text-gray-700 mb-3">
-                My Coding Adventure: Time Spent in Each Language
-            </p>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+        <div className="flex flex-col items-center text-center p-4 md:p-6 lg:p-8 w-full max-w-5xl mx-auto">
+            <h2 className="text-2xl lg:text-3xl font-bold mb-2">Code Clock</h2>
+            <p className="text-sm md:text-lg text-gray-700 mb-4">My Coding Adventure: Time Spent in Each Language</p>
+
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 lg:gap-10">
                 <RadialBarChart
                     width={350}
                     height={300}
+                    className="md:w-[400px] md:h-[350px] lg:w-[600px] lg:h-[500px]"
                     innerRadius="30%"
                     outerRadius="85%"
                     data={chartData}
@@ -103,9 +105,8 @@ const CodeLangMetrics: React.FC = () => {
                     <RadialBar dataKey="hours" background data={chartData} />
                     <Tooltip content={<CustomTooltip />} />
                 </RadialBarChart>
-                <div className="w-full flex justify-center">
-                    <CustomLegend payload={chartData.slice().reverse().map(item => ({ value: item.name, color: item.fill }))} />
-                </div>
+
+                <CustomLegend payload={chartData.slice().reverse().map(item => ({ value: item.name, color: item.fill }))} />
             </div>
         </div>
     );
