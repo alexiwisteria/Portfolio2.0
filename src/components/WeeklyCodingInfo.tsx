@@ -88,7 +88,7 @@ const WeeklyCodingInfo: React.FC = () => {
     }, []);
 
     return (
-        <div className="flex justify-center items-center w-full p-4 md:p-6 lg:p-8">
+        <div className="flex justify-center items-center w-full pt-0 md:pt-2 lg:pt-4">
             <div className="flex flex-col items-center w-full max-w-4xl">
                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 text-center">
                     Code & Conquer: My Weekly Dev Stats
@@ -98,17 +98,17 @@ const WeeklyCodingInfo: React.FC = () => {
                 </p>
                 <div className="w-full">
                     <ResponsiveContainer width="100%" height={chartHeight}>
-                        <AreaChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
-                            <CartesianGrid strokeDasharray="3 3" className="stroke-gray-400" />
-                            <XAxis dataKey="name" className="text-gray-700" />
+                        <AreaChart data={data} margin={{top: 10, right: 20, left: 10, bottom: 0}}>
+                            <CartesianGrid strokeDasharray="3 3" className="stroke-gray-400"/>
+                            <XAxis dataKey="name" className="text-gray-700"/>
                             <YAxis
-                                label={{ value: "Hours", angle: -90, position: "insideLeft" }}
+                                label={{value: "Hours", angle: -90, position: "insideLeft"}}
                                 domain={[0, "auto"]}
                                 allowDecimals={false}
                                 className="text-gray-700"
                             />
-                            <Tooltip content={<CustomTooltip />} />
-                            <Area type="monotone" dataKey="hours" stroke="#F4A261" fill="#4C7F7E" />
+                            <Tooltip content={<CustomTooltip/>}/>
+                            <Area type="monotone" dataKey="hours" stroke="#F4A261" fill="#4C7F7E"/>
                         </AreaChart>
                     </ResponsiveContainer>
                 </div>
