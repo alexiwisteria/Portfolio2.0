@@ -35,7 +35,7 @@ const CustomTooltip: React.FC<{ active?: boolean; payload?: any[] }> = ({ active
     if (active && payload && payload.length) {
         const data = payload[0].payload;
         return (
-            <div className="bg-white p-2 border border-gray-300 rounded">
+            <div className="bg-white p-2 border border-gray-300 rounded shadow-md">
                 <p className="font-bold m-0">{data.name}</p>
                 <p className="m-0">{data.text}</p>
             </div>
@@ -46,7 +46,7 @@ const CustomTooltip: React.FC<{ active?: boolean; payload?: any[] }> = ({ active
 
 const CustomLegend: React.FC<{ payload?: { value: string; color: string }[] }> = ({ payload }) => {
     return (
-        <div className="flex flex-wrap max-w-xs justify-start gap-2 mt-[-100px]">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4 max-w-xs md:max-w-sm">
             {payload?.map((entry, index) => (
                 <div key={index} className="flex items-center">
                     {languageIcons[entry.value]?.(entry.color) || ""}
@@ -83,16 +83,16 @@ const CodeLangMetrics: React.FC = () => {
             .catch((error) => console.error("Error fetching data:", error));
     }, []);
 
-    const maxHours = Math.max(...chartData.map((item) => item.hours), 10);
-
     return (
-        <div className="flex flex-col items-center text-center mt-3 mb-2">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">Code Clock</h2>
-            <p className="text-md md:text-lg text-gray-700 mb-3">My Coding Adventure: Time Spent in Each Language</p>
-            <div className="flex flex-row items-center justify-center">
+        <div className="flex flex-col items-center text-center mt-3 mb-2 p-4 md:p-6 lg:p-8 w-full max-w-4xl mx-auto">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Code Clock</h2>
+            <p className="text-sm md:text-lg text-gray-700 mb-3">
+                My Coding Adventure: Time Spent in Each Language
+            </p>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
                 <RadialBarChart
-                    width={500}
-                    height={400}
+                    width={350}
+                    height={300}
                     innerRadius="30%"
                     outerRadius="85%"
                     data={chartData}
@@ -103,7 +103,7 @@ const CodeLangMetrics: React.FC = () => {
                     <RadialBar dataKey="hours" background data={chartData} />
                     <Tooltip content={<CustomTooltip />} />
                 </RadialBarChart>
-                <div className="ml-6 flex items-center">
+                <div className="w-full flex justify-center">
                     <CustomLegend payload={chartData.slice().reverse().map(item => ({ value: item.name, color: item.fill }))} />
                 </div>
             </div>

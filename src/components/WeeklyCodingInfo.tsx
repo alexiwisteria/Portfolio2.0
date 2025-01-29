@@ -44,7 +44,7 @@ const WeeklyCodingInfo: React.FC = () => {
                 const formattedData: FormattedData[] = json.data.map((entry: WakaTimeEntry) => {
                     const parts = entry.range.text.split(' ');
                     return {
-                        name: window.innerWidth < 768 ? parts[0] : `${parts[0]} ${parts[1]} ${parts[2]}`,
+                        name: window.innerWidth < 640 ? parts[0] : `${parts[0]} ${parts[1]} ${parts[2]}`,
                         hours: parseFloat(entry.grand_total.decimal),
                     };
                 });
@@ -60,7 +60,7 @@ const WeeklyCodingInfo: React.FC = () => {
 
     useEffect(() => {
         const updateChartSize = () => {
-            if (window.innerWidth < 768) {
+            if (window.innerWidth < 640) {
                 setChartHeight(250);
             } else if (window.innerWidth < 1024) {
                 setChartHeight(350);
@@ -76,14 +76,18 @@ const WeeklyCodingInfo: React.FC = () => {
 
     return (
         <div className="flex justify-center items-center w-full p-4 md:p-6 lg:p-8">
-            <div className="flex flex-col items-center w-full max-w-6xl min-w-[700px]">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center">Code & Conquer: My Weekly Dev Stats</h2>
-                <p className="text-md md:text-lg text-gray-700 mb-4 text-center">Analyzing my coding hours—because every keystroke counts!</p>
+            <div className="flex flex-col items-center w-full max-w-screen-lg">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 text-center">
+                    Code & Conquer: My Weekly Dev Stats
+                </h2>
+                <p className="text-sm md:text-lg text-gray-700 mb-4 text-center">
+                    Analyzing my coding hours—because every keystroke counts!
+                </p>
                 <div className="w-full flex justify-center">
-                    <ResponsiveContainer width="100%" height={chartHeight} minWidth={700}>
+                    <ResponsiveContainer width="100%" height={chartHeight}>
                         <AreaChart
                             data={data}
-                            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                            margin={{ top: 10, right: 20, left: 10, bottom: 0 }}
                         >
                             <CartesianGrid strokeDasharray="3 3" stroke="#8D99AA" />
                             <XAxis dataKey="name" stroke="#4C7F7E" />
@@ -93,7 +97,10 @@ const WeeklyCodingInfo: React.FC = () => {
                                 allowDecimals={false}
                                 stroke="#4C7F7E"
                             />
-                            <Tooltip contentStyle={{ backgroundColor: "#FFF3E0", color: "#4C7F7E" }} formatter={(value) => Number(value).toFixed(2)} />
+                            <Tooltip
+                                contentStyle={{ backgroundColor: "#FFF3E0", color: "#4C7F7E" }}
+                                formatter={(value) => Number(value).toFixed(2)}
+                            />
                             <Area type="monotone" dataKey="hours" stroke="#F4A261" fill="#4C7F7E" />
                         </AreaChart>
                     </ResponsiveContainer>
