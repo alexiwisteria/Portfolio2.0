@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Space_Mono } from "next/font/google"; // Import Space Mono
+import { Space_Mono } from "next/font/google";
 import { Layout } from "@/components";
 import React from "react";
 
@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en" className={`${spaceMono.className}`}>
         <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
             <link rel="shortcut icon" href="/favicon.png" type="image/png" />
         </head>
         <body className="bg-gray-50 overflow-x-hidden">
