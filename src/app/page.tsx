@@ -14,13 +14,13 @@ export default function Page() {
                 </section>
 
                 {/* Weekly Coding Stats & Metrics */}
-                <section id="weekly-coding-chart" className="mt-[-1rem] md:mt-[-1.5rem]">
-                    <WeeklyCodingChart />
-                    <CodeLangMetrics />
+                <section id="weekly-coding-chart" className="relative mt-2 md:mt-4 lg:mt-6">
+                    <WeeklyCodingChart/>
+                    <CodeLangMetrics/>
                 </section>
 
                 {/* Information Section */}
-                <section id="information-section">
+                <section id="information-section class">
                     <InformationSection />
                 </section>
 
