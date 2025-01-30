@@ -14,10 +14,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en" className={`${spaceMono.className}`}>
         <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
             <link rel="shortcut icon" href="/favicon.png" type="image/png" />
         </head>
-        <body className="bg-gray-50"> {/* Tailwind class instead of inline style */}
+        <body className="bg-gray-50 overflow-x-hidden">
         <Layout>
             {children}
         </Layout>

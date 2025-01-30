@@ -9,22 +9,20 @@ function Hero() {
 
   return (
       <div className="relative w-full bg-gray-50 pb-2">
-        <div
-            className="grid grid-cols-1 md:grid-cols-2 max-w-screen-lg mx-auto px-6 md:px-12 py-4 md:py-6 gap-6 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-screen-lg mx-auto px-6 md:px-12 py-4 md:py-6 gap-6 items-center">
           <div className="flex flex-col space-y-4">
             <motion.h1
                 className="text-4xl sm:text-5xl md:text-6xl font-bold italic font-mono bg-gradient-to-br from-[#4C7F7E] to-[#F4A261] bg-clip-text text-transparent"
-                initial={{opacity: 0, y: -20}}
-                animate={{opacity: 1, y: 0}}
-                transition={{duration: 0.8}}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
             >
               Alexis Lee
             </motion.h1>
             <p className="text-lg sm:text-xl text-gray-700">Aspiring Data & AI Solutions Architect</p>
             <p className="text-md sm:text-lg text-gray-700">{greeting} Welcome to my portfolio.</p>
             <p className="text-md sm:text-lg text-gray-700">
-              Currently refining my database knowledge, leading student projects as a Scrum Master, and exploring
-              ethical AI integrations.
+              Currently refining my database knowledge, leading student projects as a Scrum Master, and exploring ethical AI integrations.
             </p>
 
             <div>
@@ -35,14 +33,14 @@ function Hero() {
                     onClick={() => window.open("https://www.linkedin.com/in/alexisbinchlee/")}
                     title="LinkedIn"
                 >
-                  <i className="fa-brands fa-linkedin text-lg sm:text-xl text-gray-900"/>
+                  <i className="fa-brands fa-linkedin text-lg sm:text-xl text-gray-900" />
                 </button>
                 <button
                     className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition focus:ring-2 focus:ring-gray-500"
                     onClick={() => window.open("https://github.com/alexiwisteria")}
                     title="GitHub"
                 >
-                  <i className="fa-brands fa-github text-lg sm:text-xl text-gray-900"/>
+                  <i className="fa-brands fa-github text-lg sm:text-xl text-gray-900" />
                 </button>
               </div>
             </div>
@@ -57,7 +55,7 @@ function Hero() {
 
           <div className="flex justify-center">
             <img
-                src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExejI1NmdhMHQ3a2k3ZmhoeWJqNnd5OWx2NzExcHFtdjRvdWR3Ym9nOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/RkX2zcpO79EAf82ESl/giphy.gif"
+                src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWVybjNyNXBqcXB1OGQ0YW14dzRweG12b2ViczQ0ZDlrczJ0Mmt3ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/RkX2zcpO79EAf82ESl/giphy.gif"
                 alt="Animated GIF"
                 className="w-3/4 sm:w-2/3 h-auto"
             />
