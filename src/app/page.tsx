@@ -7,16 +7,14 @@ import CodeLangMetrics from "@/components/CodeLangMetrics";
 export default function Page() {
     return (
         <div>
-            {/* Page Wrapper to Ensure Full Height */}
-            <div>
-
+            <div className="w-full max-w-screen-xl mx-auto px-4 md:px-6">
                 {/* Hero Section */}
                 <section id="hero">
                     <Hero />
                 </section>
 
                 {/* Weekly Coding Stats & Metrics */}
-                <section id="weekly-coding-chart">
+                <section id="weekly-coding-chart" className="mt-[-1rem] md:mt-[-1.5rem]">
                     <WeeklyCodingChart />
                     <CodeLangMetrics />
                 </section>
