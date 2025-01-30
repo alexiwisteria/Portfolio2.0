@@ -57,7 +57,7 @@ const WeeklyCodingInfo: React.FC = () => {
                 const formattedData: FormattedData[] = json.data.map((entry: WakaTimeEntry) => {
                     const parts = entry.range.text.split(" ");
                     return {
-                        name: window.innerWidth < 640 ? parts[0] : `${parts[0]} ${parts[1]} ${parts[2]}`,
+                        name: typeof window !== "undefined" && window.innerWidth < 640 ? parts[0] : `${parts[0]} ${parts[1]} ${parts[2]}`,
                         hours: parseFloat(entry.grand_total.decimal),
                     };
                 });
@@ -73,9 +73,13 @@ const WeeklyCodingInfo: React.FC = () => {
 
     useEffect(() => {
         const updateChartSize = () => {
-            if (window.innerWidth < 640) {
+            const width = typeof window !== "undefined" ? window.innerWidth : 1024;
+
+            if (width < 360) {
+                setChartHeight(200);
+            } else if (width < 640) {
                 setChartHeight(250);
-            } else if (window.innerWidth < 1024) {
+            } else if (width < 1024) {
                 setChartHeight(350);
             } else {
                 setChartHeight(400);
@@ -83,32 +87,39 @@ const WeeklyCodingInfo: React.FC = () => {
         };
 
         updateChartSize();
-        window.addEventListener("resize", updateChartSize);
-        return () => window.removeEventListener("resize", updateChartSize);
+        if (typeof window !== "undefined") {
+            window.addEventListener("resize", updateChartSize);
+            return () => window.removeEventListener("resize", updateChartSize);
+        }
     }, []);
 
     return (
         <div className="flex justify-center items-center w-full pt-0 md:pt-2 lg:pt-4">
-            <div className="flex flex-col items-center w-full max-w-4xl">
-                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 text-center">
+            <div className="flex flex-col items-center w-full max-w-5xl px-2 xs:px-3 sm:px-6">
+                <h2 className="text-lg xs:text-xl sm:text-2xl font-bold text-gray-900 mb-2 text-center">
                     Code & Conquer: My Weekly Dev Stats
                 </h2>
-                <p className="text-sm md:text-lg text-gray-700 mb-4 text-center">
+                <p className="text-xs xs:text-sm sm:text-lg text-gray-700 mb-4 text-center">
                     Analyzing my coding hours—because every keystroke counts!
                 </p>
                 <div className="w-full">
                     <ResponsiveContainer width="100%" height={chartHeight}>
-                        <AreaChart data={data} margin={{top: 10, right: 20, left: 10, bottom: 0}}>
-                            <CartesianGrid strokeDasharray="3 3" className="stroke-gray-400"/>
-                            <XAxis dataKey="name" className="text-gray-700"/>
+                        <AreaChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
+                            <CartesianGrid strokeDasharray="3 3" className="stroke-gray-400" />
+                            <XAxis dataKey="name" className="text-gray-700 text-xs xs:text-sm" />
                             <YAxis
-                                label={{value: "Hours", angle: -90, position: "insideLeft"}}
+                                label={{
+                                    value: "Hours",
+                                    angle: -90,
+                                    position: "insideLeft",
+                                    style: { fontSize: "12px" },
+                                }}
                                 domain={[0, "auto"]}
                                 allowDecimals={false}
-                                className="text-gray-700"
+                                className="text-gray-700 text-xs xs:text-sm"
                             />
-                            <Tooltip content={<CustomTooltip/>}/>
-                            <Area type="monotone" dataKey="hours" stroke="#F4A261" fill="#4C7F7E"/>
+                            <Tooltip content={<CustomTooltip />} />
+                            <Area type="monotone" dataKey="hours" stroke="#F4A261" fill="#4C7F7E" />
                         </AreaChart>
                     </ResponsiveContainer>
                 </div>
