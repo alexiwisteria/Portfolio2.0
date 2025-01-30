@@ -28,7 +28,7 @@ const SKILLS = {
             children: (
                 <div className="flex flex-wrap gap-2">
                     {["Java", "OOP", "Agile Methodologies"].map((skill) => (
-                        <span key={skill} className="bg-gray-300 px-3 py-1 text-sm rounded-lg">
+                        <span key={skill} className="bg-gray-300 px-3 py-1 text-xs xs:text-sm sm:text-base rounded-lg">
                             {skill}
                         </span>
                     ))}
@@ -44,7 +44,7 @@ const SKILLS = {
             children: (
                 <div className="flex flex-wrap gap-2">
                     {["Git", "JUnit", "SQL", "Vite", "TypeScript", "React", "Python", "MongoDB"].map((skill) => (
-                        <span key={skill} className="bg-gray-300 px-3 py-1 text-sm rounded-lg">
+                        <span key={skill} className="bg-gray-300 px-3 py-1 text-xs xs:text-sm sm:text-base rounded-lg">
                             {skill}
                         </span>
                     ))}
@@ -60,7 +60,7 @@ const EDUCATION: InfoItem[] = [
         title: "Bachelor of Science in Software Engineering - Ensign College",
         date: "Jan 2025 - Apr 2026",
         children: (
-            <ul className="list-disc pl-5">
+            <ul className="list-disc pl-4 sm:pl-5">
                 <li>Designed scalable algorithms for sorting large datasets.</li>
                 <li>Built responsive interfaces using React and Tailwind CSS.</li>
                 <li>Led sprints to deliver functional prototypes on time.</li>
@@ -74,13 +74,13 @@ const EXTRACURRICULARS: InfoItem[] = [
         icon: CodeBracketIcon,
         title: "Coding Club Member - Salt Lake City, Utah",
         date: "Jan 2025",
-        children: <p>Collaborated on software projects, organized hackathons, and mentored peers.</p>,
+        children: <p className="text-xs xs:text-sm sm:text-base">Collaborated on software projects, organized hackathons, and mentored peers.</p>,
     },
     {
         icon: ComputerDesktopIcon,
         title: "Studio E - Ensign College AI Autograding Project - Scrum Master",
         date: "Jan 2025",
-        children: <p>Led an AI-driven grading project, optimizing development speed by 40%.</p>,
+        children: <p className="text-xs xs:text-sm sm:text-base">Led an AI-driven grading project, optimizing development speed by 40%.</p>,
     },
 ];
 
@@ -89,24 +89,24 @@ const EXPERIENCE: InfoItem[] = [
         icon: Cog6ToothIcon,
         title: "Help Desk Technician - Ensign College",
         date: "Jan 2024 - Present",
-        children: <p>Improved ticket resolution efficiency and streamlined technical issue management.</p>,
+        children: <p className="text-xs xs:text-sm sm:text-base">Improved ticket resolution efficiency and streamlined technical issue management.</p>,
     },
     {
         icon: UserGroupIcon,
         title: "Team Lead - Research and Business Development Center",
         date: "Apr 2020 - Jul 2020",
-        children: <p>Led a team in self-taught data analytics for actionable insights.</p>,
+        children: <p className="text-xs xs:text-sm sm:text-base">Led a team in self-taught data analytics for actionable insights.</p>,
     },
 ];
 
 export function InformationSection() {
     return (
-        <section className="px-4 md:px-8 lg:px-16">
+        <section className="px-2 xs:px-4 sm:px-6 md:px-8">
             <div className="container mx-auto max-w-6xl">
                 {["Skills", "Education", "Extracurricular Activities", "Experience"].map((section, index) => (
                     <div key={index} id={section.toLowerCase().replace(/ /g, "-")} className="mb-6">
-                        <h2 className="text-2xl font-bold">{section}</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <h2 className="text-lg xs:text-xl sm:text-2xl font-bold">{section}</h2>
+                        <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                             {(section === "Skills"
                                     ? [...SKILLS.proficient, ...SKILLS.emerging]
                                     : section === "Education"
